@@ -1,12 +1,15 @@
 package com.hans.control;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.hans.model.User;
 import com.hans.service.UserService;
-import com.hans.spring.ClassPathXmlApplicationContext;
 
 public class UserAction {
 	public static void main(String[] args) throws Exception {
-		ClassPathXmlApplicationContext cpxac = new ClassPathXmlApplicationContext();
+		@SuppressWarnings("resource")
+		ClassPathXmlApplicationContext cpxac = new ClassPathXmlApplicationContext(
+				"beans.xml");
 		UserService userService = (UserService) cpxac.getBean("userService");
 		User user = new User();
 		user.setName("hans");
