@@ -24,6 +24,15 @@
 
 	</aop:config>
 	
+	<bean id="sddataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+    <!-- results in a setDriverClassName(String) call -->
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <property name="url"
+            value="jdbc:mysql://localhost/text?useUnicode=true&amp;characterEncoding=UTF-8"/>
+    <property name="username" value="root"/>
+    <property name="password" value=""/> 
+   
+	</bean>
     <!-- more bean definitions for services go here -->
 
 </beans>
